@@ -1,0 +1,25 @@
+/*Larry has been given a permutation of a sequence of natural numbers incrementing from  as an array. He must determine whether the array can be sorted using the following operation any number of times:
+
+Choose any  consecutive indices and rotate their elements in such a way that*/
+
+//https://www.hackerrank.com/challenges/larrys-array/problem?isFullScreen=true
+
+function larrysArray(A) {
+  let changes = 0;
+  for (let i = 0; i < A.length; i++) {
+    for (let j = i + 1; j < A.length; j++) {
+      if (A[i] > A[j]) {
+        changes++;
+      }
+    }
+  }
+  if (changes % 2 === 0) {
+    return 'YES';
+  }
+  return 'NO';
+}
+
+larrysArray([1, 6, 5, 2, 4, 3]);
+larrysArray([3, 1, 2]);
+larrysArray([1, 3, 4, 2]);
+larrysArray([1, 2, 3, 5, 4]);
